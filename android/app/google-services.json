@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1077828578739",
+    "project_id": "romanza-app",
+    "storage_bucket": "romanza-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077828578739:android:886b33895cd75be5722fc6",
+        "android_client_info": {
+          "package_name": "com.example.romanza_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077828578739-0s7658fdievsqmc8or4217mnm63jqjc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4AKdJIU7mzNk5FTG-Zuk34NkpkSPQnks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077828578739-0s7658fdievsqmc8or4217mnm63jqjc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
