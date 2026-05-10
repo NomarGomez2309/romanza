@@ -11,13 +11,10 @@ class DashboardScreen extends StatelessWidget {
 
       appBar: AppBar(
         title: const Text(
-         "Dashboard",
-         style: TextStyle(
-         color: Colors.white,
-         fontSize: 24,
-       ),
-      ),
-      backgroundColor: Color.fromRGBO(162, 203, 139, 1.0),
+          "Dashboard",
+          style: TextStyle(color: Colors.white, fontSize: 24),
+        ),
+        backgroundColor: Color.fromRGBO(162, 203, 139, 1.0),
       ),
 
       body: Padding(
@@ -27,40 +24,25 @@ class DashboardScreen extends StatelessWidget {
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
           children: [
-
             // 💑 COUPLE BUTTON
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => const CoupleScreen(),
-                  ),
+                  MaterialPageRoute(builder: (_) => const CoupleScreen()),
                 );
               },
-              child: Image.asset(
-                "assets/images/Couple.png",
-                  width: 200,
-              ),
+              child: Image.asset("assets/images/Couple.png", width: 200),
             ),
 
             // 📅 DAYS
-            Image.asset(
-                 "assets/images/Calendar.png",
-                  width: 200,
-              ),
+            Image.asset("assets/images/Calendar.png", width: 200),
 
             // 🎵 MUSIC
-            Image.asset(
-                 "assets/images/Spotify.png",
-                  width: 200,
-              ),
+            Image.asset("assets/images/Spotify.png", width: 200),
 
             // 📸 ALBUM
-            Image.asset(
-                 "assets/images/Album.png",
-                  width: 200,
-              ),
+            Image.asset("assets/images/Album.png", width: 200),
           ],
         ),
       ),
