@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'features/auth/presentation/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'core/theme/app_theme.dart';
+import 'features/onboarding/presentation/screens/relationship_date_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,9 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(textTheme: GoogleFonts.pixelifySansTextTheme()),
+      theme: AppTheme.darkTheme,
 
-      home: const LoginScreen(),
+      home: const RelationshipDateScreen(),
     );
   }
 }
