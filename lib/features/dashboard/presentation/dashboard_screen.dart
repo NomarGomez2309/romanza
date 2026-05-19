@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../couple/presentation/couple_screen.dart';
+import '../widgets/modules/couple_module.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -7,43 +7,119 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(91, 126, 60, 100),
+      backgroundColor: const Color(0xFFE2F4ED),
 
-      appBar: AppBar(
-        title: const Text(
-          "Dashboard",
-          style: TextStyle(color: Colors.white, fontSize: 24),
-        ),
-        backgroundColor: Color.fromRGBO(162, 203, 139, 1.0),
-      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
 
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          children: [
-            // 💑 COUPLE BUTTON
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const CoupleScreen()),
-                );
-              },
-              child: Image.asset("assets/images/Couple.png", width: 200),
-            ),
+          child: Column(
+            children: [
 
-            // 📅 DAYS
-            Image.asset("assets/images/Calendar.png", width: 200),
+              // =========================
+              // APP BAR
+              // =========================
 
-            // 🎵 MUSIC
-            Image.asset("assets/images/Spotify.png", width: 200),
+              Container(
+                height: 50,
+                width: double.infinity,
+                color: Colors.grey,
+              ),
 
-            // 📸 ALBUM
-            Image.asset("assets/images/Album.png", width: 200),
-          ],
+              const SizedBox(height: 24),
+
+              // =========================
+              // MAIN CONTAINER (DAYS)
+              // =========================
+
+              Container(
+                height: 170,
+                width: double.infinity,
+                color: Colors.grey,
+              ),
+
+              const SizedBox(height: 24),
+
+              // =========================
+              // MODULE SECTION
+              // =========================
+
+              Expanded(
+                child: Row(
+                  children: [
+
+                    // =========================
+                    // LEFT COLUMN
+                    // =========================
+
+                    Expanded(
+                      child: Column(
+                        children: [
+
+                          // CONNECT
+                          Container(
+                            height: 70,
+                            color: Colors.green,
+                          ),
+
+                          const SizedBox(height: 24),
+
+                          // MUSIC
+                          Container(
+                            height: 170,
+                            color: Colors.grey,
+                          ),
+
+                          const SizedBox(height: 24),
+
+                          // CALENDAR
+                          Container(
+                            height: 150,
+                            color: Colors.blueGrey,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(width: 24),
+
+                    // =========================
+                    // RIGHT COLUMN
+                    // =========================
+
+                    Expanded(
+                      child: Column(
+                        children: [
+
+                          // LIST
+                          Container(
+                            height: 150,
+                            color: Colors.amber,
+                          ),
+
+                          const SizedBox(height: 24),
+
+                          // WEDDING
+                          Container(
+                            height: 170,
+                            color: Colors.greenAccent,
+                          ),
+
+                          const SizedBox(height: 24),
+
+                          // MOVIES
+                          Container(
+                            height: 150,
+                            color: Colors.teal,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
