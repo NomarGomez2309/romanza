@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:romanza/features/dashboard/presentation/dashboard_screen.dart';
-import 'features/auth/presentation/login_screen.dart';
+import 'package:romanza/features/auth/presentation/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'core/theme/app_theme.dart';
-import 'features/onboarding/presentation/screens/relationship_date_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
 
       theme: AppTheme.darkTheme,
 
-      home: const DashboardScreen(),
+      home: const LoginScreen(),
     );
   }
 }

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1077828578739-14trofv9hchk4gu0r5ahs9hpgs6hlrkk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.romanza_app",
+            "certificate_hash": "2990207f29b7dfce1ee2e649a98eee6593382472"
+          }
+        },
+        {
           "client_id": "1077828578739-0s7658fdievsqmc8or4217mnm63jqjc0.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,14 @@
             {
               "client_id": "1077828578739-0s7658fdievsqmc8or4217mnm63jqjc0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1077828578739-pre3rq8o23al8f65uq4a4oc412jkr4k8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.romanzaApp",
+                "app_store_id": "12345678"
+              }
             }
           ]
         }
