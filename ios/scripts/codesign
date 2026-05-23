@@ -1,0 +1,20 @@
+#!/bin/sh
+
+target=""
+for arg in "$@"; do
+  target="$arg"
+done
+
+if [ -n "$target" ] && [ -e "$target" ]; then
+  clean_path="$target"
+  while [ "$clean_path" != "/" ] && [ "${clean_path%.framework}" = "$clean_path" ]; do
+    clean_path="$(dirname "$clean_path")"
+  done
+
+  if [ -e "$clean_path" ]; then
+    /usr/bin/xattr -rc "$clean_path" 2>/dev/null || true
+  fi
+  /usr/bin/xattr -rc "$target" 2>/dev/null || true
+fi
+
+exec /usr/bin/codesign "$@"
