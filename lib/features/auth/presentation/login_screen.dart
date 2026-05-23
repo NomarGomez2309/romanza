@@ -116,11 +116,7 @@ class _AuthAccessScreenState extends State<AuthAccessScreen> {
     }
 
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (_) => _shouldOpenOnboarding(session)
-            ? const RelationshipDateScreen()
-            : const DashboardScreen(),
-      ),
+      MaterialPageRoute(builder: (_) => const DashboardScreen()),
     );
   }
 
