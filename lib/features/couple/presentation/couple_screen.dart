@@ -54,7 +54,10 @@ class _CoupleScreenState extends State<CoupleScreen> {
     setState(() {
       _inviteCode = couple?['inviteCode'] as String?;
       _inviteLink = _inviteCode == null ? null : 'romanza://join/$_inviteCode';
-      _isConnected = (couple?['user2Id'] as String? ?? '').isNotEmpty;
+      final members = couple?['members'] as List?;
+      _isConnected =
+          (members != null && members.length >= 2) ||
+          (couple?['user2Id'] as String? ?? '').isNotEmpty;
       _isLoading = false;
     });
   }
@@ -92,7 +95,11 @@ class _CoupleScreenState extends State<CoupleScreen> {
       _isLoading = false;
     });
 
-    _showMessage(success ? 'Pareja vinculada.' : 'Codigo invalido.');
+    _showMessage(
+      success
+          ? 'Pareja vinculada.'
+          : 'Codigo invalido o una de las cuentas ya tiene pareja.',
+    );
   }
 
   Future<void> _copyCode() async {
