@@ -100,59 +100,53 @@ class _AuthAccessScreenState extends State<AuthAccessScreen> {
 
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
-    final user = _isRegister
+    final result = _isRegister
         ? await _auth.register(email, password)
         : await _auth.login(email, password);
 
     if (!mounted) return;
     setState(() => _isLoading = false);
 
-    if (user == null) {
+    final session = result.session;
+    if (session == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            _isRegister
-                ? 'No pude crear la cuenta. Revisa el correo y password.'
-                : 'No pude iniciar sesion. Revisa tus datos.',
-          ),
-        ),
+        SnackBar(content: Text(result.message ?? 'No pude entrar.')),
       );
       return;
     }
 
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (_) => _isRegister
-            ? const RelationshipDateScreen()
-            : const DashboardScreen(),
-      ),
+      MaterialPageRoute(builder: (_) => const DashboardScreen()),
     );
   }
 
   Future<void> _continueWithGoogle() async {
     setState(() => _isLoading = true);
 
-    final user = await _auth.loginWithGoogle();
+    final result = await _auth.loginWithGoogle();
 
     if (!mounted) return;
     setState(() => _isLoading = false);
 
-    if (user == null) {
+    final session = result.session;
+    if (session == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No pude iniciar sesion con Google todavia.'),
-        ),
+        SnackBar(content: Text(result.message ?? 'No pude entrar con Google.')),
       );
       return;
     }
 
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (_) => _isRegister
+        builder: (_) => _shouldOpenOnboarding(session)
             ? const RelationshipDateScreen()
             : const DashboardScreen(),
       ),
     );
+  }
+
+  bool _shouldOpenOnboarding(AuthSession session) {
+    return session.profileCreated || !session.hasRelationshipDate;
   }
 
   @override

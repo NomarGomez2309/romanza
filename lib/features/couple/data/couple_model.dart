@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class CoupleModel {
   final String id;
   final String user1Id;
@@ -18,8 +20,12 @@ class CoupleModel {
       'id': id,
       'user1Id': user1Id,
       'user2Id': user2Id,
+      'members': user2Id.isEmpty ? [user1Id] : [user1Id, user2Id],
       'startDate': startDate.toIso8601String(),
       'inviteCode': inviteCode,
+      'status': user2Id.isEmpty ? 'pending' : 'active',
+      'createdAt': FieldValue.serverTimestamp(),
+      'updatedAt': FieldValue.serverTimestamp(),
     };
   }
 
